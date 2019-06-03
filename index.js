@@ -14,8 +14,8 @@ app.set('view engine', 'njk')
 
 const checkParamsAgeMiddleware = (req, res, next) => {
   const age = req.query.age
-  if (age) return next()
-  return res.redirect('/')
+  if (!age) { return res.redirect('/') }
+  return next()
 }
 
 app.get('/', (req, res) => {
